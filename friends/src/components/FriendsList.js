@@ -1,6 +1,7 @@
 import React from 'react';
 // import Loader from 'react-loader-spinner';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
+import FriendCard from './FriendCard';
 
 class FriendsList extends React.Component {
 	// ?? state
@@ -18,7 +19,7 @@ class FriendsList extends React.Component {
 		axiosWithAuth()
 			.get('/friends')
 			.then((res) => {
-				console.log('friends list =====> ', res);
+				console.log('friends list =====> ', res.data);
 				this.setState({
 					friends: res.data,
 				});
@@ -27,6 +28,14 @@ class FriendsList extends React.Component {
 				console.error('ERROR LOADING FRIENDS LIST', err.message)
 			);
 	};
+
+	render() {
+		return (
+			<div className="friends-container">
+				<FriendCard />
+			</div>
+		);
+	}
 }
 
 export default FriendsList;
