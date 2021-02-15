@@ -5,12 +5,12 @@ class LoginForm extends React.Component {
 	state = {
 		credentials: {
 			username: '',
-			poassword: '',
+			password: '',
 		},
 	};
 
 	handleChanges = (e) => {
-		this.setSteta({
+		this.setState({
 			credentials: {
 				...this.state.credentials,
 				[e.target.name]: e.target.value,
@@ -26,10 +26,14 @@ class LoginForm extends React.Component {
 		})
 			.then((res) => {
 				localStorage.setItem('token', res.data.payload);
-				this.props.history.push('/');
+				this.props.history.push('/protected');
 			})
 			.catch((err) => console.error('ERROR LOGGING IN', err.message));
 	};
+
+	if(isLoading) {
+		return <h2>Please wait, logging in...</h2>;
+	}
 
 	render() {
 		return (
@@ -38,12 +42,14 @@ class LoginForm extends React.Component {
 					<input
 						text="text"
 						name="username"
+						placeholder="username"
 						value={this.state.credentials.username}
-						onChange={this.handleChenges}
+						onChange={this.handleChanges}
 					/>
 					<input
 						type="password"
 						name="password"
+						placeholder="password"
 						value={this.state.credentials.password}
 						onChange={this.handleChanges}
 					/>
