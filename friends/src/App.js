@@ -12,11 +12,14 @@ function App() {
 					<li>
 						<Link to="/login">Log In</Link>
 					</li>
-					{/* <li>
-						<Link to="/login" onClick={logout}>
+					<li>
+						<Link
+							to="/login"
+							onClick={localStorage.removeItem('token')}
+						>
 							Log Out
 						</Link>
-					</li> */}
+					</li>
 					<li>
 						<Link to="/protected">Friends List</Link>
 					</li>

@@ -2,13 +2,16 @@ import React from 'react';
 import axios from 'axios';
 
 class LoginForm extends React.Component {
+	// ?? Set state
 	state = {
+		isLoading: false,
 		credentials: {
 			username: '',
 			password: '',
 		},
 	};
 
+	// ?? handleChanges()
 	handleChanges = (e) => {
 		this.setState({
 			credentials: {
@@ -18,12 +21,10 @@ class LoginForm extends React.Component {
 		});
 	};
 
+	// ?? login()
 	login = (e) => {
 		e.preventDefault();
-		axios.post('https://localhost:5000/api/login', {
-			username: 'Lambda School',
-			password: 'i<3Lambd4',
-		})
+		axios.post('https://localhost:5000/api/login', this.state.credentials)
 			.then((res) => {
 				localStorage.setItem('token', res.data.payload);
 				this.props.history.push('/protected');
@@ -31,10 +32,10 @@ class LoginForm extends React.Component {
 			.catch((err) => console.error('ERROR LOGGING IN', err.message));
 	};
 
-	if(isLoading) {
-		return <h2>Please wait, logging in...</h2>;
-	}
-
+	// if(isLoading) {
+	// 	return <h2>Please wait, logging in...</h2>;
+	// }
+	// ?? Render component
 	render() {
 		return (
 			<div>
