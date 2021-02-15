@@ -31,7 +31,7 @@ class FriendsList extends React.Component {
 
 	render() {
 		return (
-			<div className="friends-container">
+			<div>
 				<FriendCard />
 			</div>
 		);

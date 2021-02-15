@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Loader from 'react-loader-spinner';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
+import { Spinner } from 'bootstrap';
 
 const FriendCard = () => {
 	const [friendData, setFriendData] = useState([]);
@@ -23,32 +23,32 @@ const FriendCard = () => {
 		<div>
 			{!isLoading ? (
 				<div className="spinner">
-					<Loader
-						type="Puff"
-						color="#204963"
-						height="60"
-						width="60"
-					/>
+					{/* <Spinner variant="primary" animation="grow" /> */}
 					<p>Loading data, one moment...</p>
 				</div>
 			) : (
-				<div>
+				<div className="friends-container">
 					<h2>Welcome to Central Perk!</h2>
-					{friendData.map((friend) => {
-						return (
-							<div className="friend-card" key={friend.id}>
-								<div className="friend-name">
-									{friend.name}
+					<div className="card-container">
+						{friendData.map((friend) => {
+							return (
+								<div
+									className="friend-card"
+									key={friend.id}
+								>
+									<div className="friend-name">
+										Name: {friend.name}
+									</div>
+									<div className="friend-age">
+										Age: {friend.age}
+									</div>
+									<div className="friend-email">
+										Email: {friend.email}
+									</div>
 								</div>
-								<div className="friend-age">
-									{friend.age}
-								</div>
-								<div className="friend-email">
-									{friend.email}
-								</div>
-							</div>
-						);
-					})}
+							);
+						})}
+					</div>
 				</div>
 			)}
 		</div>
