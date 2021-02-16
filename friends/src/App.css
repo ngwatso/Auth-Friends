@@ -39,6 +39,8 @@
 
 a {
 	text-decoration: none;
+	margin: 0 2%;
+	color: #008b8b;
 }
 
 form {
@@ -60,16 +62,10 @@ button {
 	width: 5%;
 }
 
-ul {
+.header {
+	margin-top: 1%;
 	display: flex;
-	flex-flow: nowrap;
 	justify-content: flex-end;
-	/* border: 1px solid black; */
-	list-style-type: none;
-}
-
-li {
-	width: 10%;
 }
 
 body {
