@@ -15,14 +15,14 @@ function App() {
 	// 	localStorage.removeItem('token');
 	// };
 	// let isLoggedIn = false;
-	// useEffect(() => {
-	// 	const getToken = (e) => {
-	// 		localStorage.getItem('token');
-	// 		// isLoggedIn = true;
-	// 	};
+	useEffect(() => {
+		const getToken = (e) => {
+			localStorage.getItem('token');
+			// isLoggedIn = true;
+		};
 
-	// 	getToken();
-	// }, []);
+		getToken();
+	}, []);
 
 	return (
 		<Router>
@@ -55,9 +55,9 @@ function App() {
 						component={FriendsList}
 					/>
 					<Route path="/add-friends" component={AddFriendForm} />
-					<Route component={AddFriendForm} />
+					{/* <Route component={AddFriendForm} /> */}
 					<Route path="/login" component={LoginForm} />
-					<Route component={LoginForm} />
+					{/* <Route component={LoginForm} /> */}
 				</Switch>
 			</div>
 		</Router>

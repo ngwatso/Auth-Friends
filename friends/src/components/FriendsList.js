@@ -2,6 +2,7 @@ import React from 'react';
 // import Loader from 'react-loader-spinner';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 import FriendCard from './FriendCard';
+import AddFriendForm from './AddFriendForm';
 
 class FriendsList extends React.Component {
 	// ?? state
@@ -33,6 +34,7 @@ class FriendsList extends React.Component {
 		return (
 			<div>
 				<FriendCard />
+				<AddFriendForm />
 			</div>
 		);
 	}
